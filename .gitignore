@@ -11,8 +11,8 @@ venv/
 env.bak/
 venv.bak/
 
-# Data files
-data/
+# Data files - РАЗРЕШАЕМ для Railway (закомментировано)
+# data/
 *.csv
 *.json
 
