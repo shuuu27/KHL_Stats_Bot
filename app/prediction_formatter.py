@@ -32,7 +32,6 @@ class PredictionFormatter:
         response += f"📊 *Вероятности:*\n"
         response += f"• {home_display}: {home_prob:.1f}%\n"
         response += f"• {away_display}: {away_prob:.1f}%\n"
-        response += f"• Ничья: {draw_prob:.1f}%\n\n"
         
         response += f"📈 *Статистика команд:*\n"
         response += f"🏠 {home_display}:\n"
