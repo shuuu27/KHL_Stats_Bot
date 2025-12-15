@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 from app.data_loader import loader
 from app.handlers import router
 
-# Загрузка переменных окружения
 load_dotenv()
 
 TOKEN = os.getenv("TELEGRAM_TOKEN")

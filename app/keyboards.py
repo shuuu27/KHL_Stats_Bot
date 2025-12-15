@@ -146,7 +146,7 @@ def get_stats_options_keyboard() -> InlineKeyboardMarkup:
 def get_yes_no_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     
-    builder.button(text="✅ Да", callback_data="yes")
+    builder.button(text="⬅️ Назад", callback_data="yes")
     
     builder.adjust(2)
     
