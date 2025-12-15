@@ -137,7 +137,7 @@ def get_stats_options_keyboard() -> InlineKeyboardMarkup:
     builder.adjust(2)
     
     builder.row(InlineKeyboardButton(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
@@ -152,7 +152,7 @@ def get_yes_no_keyboard() -> InlineKeyboardMarkup:
     
 
     builder.row(InlineKeyboardButton(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
@@ -165,7 +165,7 @@ def get_back_only_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     
     builder.button(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     )
     
@@ -199,7 +199,7 @@ def get_table_seasons_keyboard() -> InlineKeyboardMarkup:
     builder.adjust(3)
 
     builder.row(InlineKeyboardButton(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
@@ -233,7 +233,7 @@ def get_tops_seasons_keyboard() -> InlineKeyboardMarkup:
     builder.adjust(3)
 
     builder.row(InlineKeyboardButton(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
@@ -257,7 +257,7 @@ def get_tops_menu_keyboard() -> InlineKeyboardMarkup:
         )
     
     builder.row(InlineKeyboardButton(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
@@ -282,7 +282,7 @@ def get_plot_options_keyboard() -> InlineKeyboardMarkup:
         )
     
     builder.row(InlineKeyboardButton(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
@@ -341,7 +341,7 @@ def get_prediction_keyboard() -> InlineKeyboardMarkup:
     )
     
     builder.row(InlineKeyboardButton(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
