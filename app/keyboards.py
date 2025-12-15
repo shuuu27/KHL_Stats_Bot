@@ -61,7 +61,7 @@ def get_teams_keyboard(action_prefix: str = "team_") -> InlineKeyboardMarkup:
     
 
     builder.row(InlineKeyboardButton(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
@@ -95,7 +95,7 @@ def get_seasons_keyboard(action_prefix: str = "season_") -> InlineKeyboardMarkup
     builder.adjust(3)
     
     builder.row(InlineKeyboardButton(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
@@ -110,7 +110,7 @@ def get_confirmation_keyboard() -> InlineKeyboardMarkup:
     
 
     builder.row(InlineKeyboardButton(
-        text="⬅️ Назад в меню",
+        text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
