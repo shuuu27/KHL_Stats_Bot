@@ -213,9 +213,9 @@ async def season_selected(callback: CallbackQuery, state: FSMContext):
         if season_id == "all":
             season_name = "Все сезоны"
         elif len(season_id) == 3:
-            season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+            season_name = f"200{season_id[0]}/20{season_id[1:]}"
         else:
-            season_name = season_id
+            season_name = f"20{season_id[:2]}/{season_id[2:]}"
         
         team_display_name = TEAM_NAMES.get(team_id, team_id)
         
@@ -242,9 +242,9 @@ async def show_general_stats(callback: CallbackQuery, state: FSMContext):
     if season_id == "all":
         season_name = "Все сезоны"
     elif len(season_id) == 3:
-        season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+        season_name = f"200{season_id[0]}/20{season_id[1:]}"
     else:
-        season_name = season_id
+        season_name = f"20{season_id[:2]}/{season_id[2:]}"
     
     response = StatsFormatter.format_team_stats(stats, season_name)
     
@@ -281,9 +281,9 @@ async def process_h2h_selection(callback: CallbackQuery, state: FSMContext):
         if season_id == "all":
             season_name = "Все сезоны"
         elif len(season_id) == 3:
-            season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+            season_name = f"200{season_id[0]}/20{season_id[1:]}"
         else:
-            season_name = season_id
+            season_name = f"20{season_id[:2]}/{season_id[2:]}"
         
         response = StatsFormatter.format_head_to_head(h2h_stats, season_name)
         
@@ -310,9 +310,9 @@ async def show_home_stats(callback: CallbackQuery, state: FSMContext):
     if season_id == "all":
         season_name = "Все сезоны"
     elif len(season_id) == 3:
-        season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+        season_name = f"200{season_id[0]}/20{season_id[1:]}"
     else:
-        season_name = season_id
+        season_name = f"20{season_id[:2]}/{season_id[2:]}"
     
     if not stats:
         response = f"❌ Нет данных о домашних играх команды *{TEAM_NAMES.get(team_id, team_id)}* в сезоне {season_name}"
@@ -351,9 +351,9 @@ async def show_away_stats(callback: CallbackQuery, state: FSMContext):
     if season_id == "all":
         season_name = "Все сезоны"
     elif len(season_id) == 3:
-        season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+        season_name = f"200{season_id[0]}/20{season_id[1:]}"
     else:
-        season_name = season_id
+        season_name = f"20{season_id[:2]}/{season_id[2:]}"
     
     if not stats:
         response = f"❌ Нет данных о гостевых играх команды *{TEAM_NAMES.get(team_id, team_id)}* в сезоне {season_name}"
@@ -425,9 +425,9 @@ async def show_goals_stats(callback: CallbackQuery, state: FSMContext):
     if season_id == "all":
         season_name = "Все сезоны"
     elif len(season_id) == 3:
-        season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+        season_name = f"200{season_id[0]}/20{season_id[1:]}"
     else:
-        season_name = season_id
+        season_name = f"20{season_id[:2]}/{season_id[2:]}"
     
     if not stats:
         response = f"❌ Нет данных по голам команды *{TEAM_NAMES.get(team_id, team_id)}* в сезоне {season_name}"
@@ -485,7 +485,12 @@ async def show_season_table(callback: CallbackQuery):
             reply_markup=get_seasons_keyboard("table_")
         )
     else:
-        season_name = f"20{season_id[:2]}/20{season_id[2:]}"
+            
+        if len(season_id) == 3:
+            season_name = f"200{season_id[0]}/20{season_id[1:]}"
+        else:
+            season_name = f"20{season_id[:2]}/{season_id[2:]}"
+        
         table_data = calculator.get_season_table(season_id)
         response = TextTableFormatter.format_season_table(table_data, season_name)
         
@@ -505,9 +510,9 @@ async def top_menu_selected(callback: CallbackQuery, state: FSMContext):
     if season_id == "all":
         season_name = "Все сезоны"
     elif len(season_id) == 3:
-        season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+        season_name = f"200{season_id[0]}/20{season_id[1:]}"
     else:
-        season_name = season_id
+        season_name = f"20{season_id[:2]}/{season_id[2:]}"
     
     await callback.message.edit_text(
         f"🏆 *Топы и рекорды*\n📅 Сезон: *{season_name}*\n\nВыберите тип топа:",
@@ -524,9 +529,9 @@ async def show_top_winners(callback: CallbackQuery, state: FSMContext):
     if season_id == "all":
         season_name = "Все сезоны"
     elif len(season_id) == 3:
-        season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+        season_name = f"200{season_id[0]}/20{season_id[1:]}"
     else:
-        season_name = season_id
+        season_name = f"20{season_id[:2]}/{season_id[2:]}"
     
     top_data = calculator.get_top_winners(season_id, limit=10)
     response = TextTableFormatter.format_top_winners(top_data, season_name)
@@ -546,9 +551,9 @@ async def show_top_points(callback: CallbackQuery, state: FSMContext):
     if season_id == "all":
         season_name = "Все сезоны"
     elif len(season_id) == 3:
-        season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+        season_name = f"200{season_id[0]}/20{season_id[1:]}"
     else:
-        season_name = season_id
+        season_name = f"20{season_id[:2]}/{season_id[2:]}"
     
     top_data = calculator.get_top_points(season_id, limit=10)
     response = TextTableFormatter.format_top_points(top_data, season_name)
@@ -568,9 +573,9 @@ async def show_top_winrate(callback: CallbackQuery, state: FSMContext):
     if season_id == "all":
         season_name = "Все сезоны"
     elif len(season_id) == 3:
-        season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+        season_name = f"200{season_id[0]}/20{season_id[1:]}"
     else:
-        season_name = season_id
+        season_name = f"20{season_id[:2]}/{season_id[2:]}"
     
     top_data = calculator.get_top_winrate(season_id, limit=10)
     response = TextTableFormatter.format_top_winrate(top_data, season_name)
@@ -590,9 +595,9 @@ async def show_top_scorers(callback: CallbackQuery, state: FSMContext):
     if season_id == "all":
         season_name = "Все сезоны"
     elif len(season_id) == 3:
-        season_name = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+        season_name = f"200{season_id[0]}/20{season_id[1:]}"
     else:
-        season_name = season_id
+        season_name = f"20{season_id[:2]}/{season_id[2:]}"
     
     top_data = calculator.get_top_goal_scorers(season_id, limit=10)
     response = TextTableFormatter.format_top_scorers(top_data, season_name)
@@ -612,8 +617,11 @@ async def show_full_table(callback: CallbackQuery, state: FSMContext):
     if season_id == "all":
         await callback.answer("❌ Выберите конкретный сезон для просмотра таблицы", show_alert=True)
         return
-    
-    season_name = f"20{season_id[:2]}/20{season_id[2:]}"
+
+    elif len(season_id) == 3:
+        season_name = f"200{season_id[0]}/20{season_id[1:]}"
+    else:
+        season_name = f"20{season_id[:2]}/{season_id[2:]}"
     table_data = calculator.get_season_table(season_id)
     response = TextTableFormatter.format_season_table(table_data, season_name)
     
@@ -735,13 +743,13 @@ async def plot_season_selected(callback: CallbackQuery, state: FSMContext):
             return
         
         if season_id == "all":
-            season_text = "Все сезоны"
+            season_name = "Все сезоны"
         elif len(season_id) == 3:
-            season_text = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+            season_name = f"200{season_id[0]}/20{season_id[1:]}"
         else:
-            season_text = season_id
+            season_name = f"20{season_id[:2]}/{season_id[2:]}"
         
-        caption += f"\n📅 Сезон: {season_text}"
+        caption += f"\n📅 Сезон: {season_name}"
         
         photo = BufferedInputFile(plot_buffer.read(), filename="plot.png")
         
@@ -826,13 +834,13 @@ async def plot_compare2_selected(callback: CallbackQuery, state: FSMContext):
         plot_buffer = plot_generator.create_goals_comparison_plot(team1_id, team2_id, season_id)
         
         if season_id == "all":
-            season_text = "Все сезоны"
+            season_name = "Все сезоны"
         elif len(season_id) == 3:
-            season_text = f"20{season_id[0]}{season_id[1]}/20{season_id[2]}"
+            season_name = f"200{season_id[0]}/20{season_id[1:]}"
         else:
-            season_text = season_id
+            season_name = f"20{season_id[:2]}/{season_id[2:]}"
         
-        caption = f"⚔️ Сравнение голов\n{team1_id} vs {team2_id}\n📅 Сезон: {season_text}"
+        caption = f"⚔️ Сравнение голов\n{team1_id} vs {team2_id}\n📅 Сезон: {season_name}"
         
         photo = BufferedInputFile(plot_buffer.read(), filename="comparison_plot.png")
         
