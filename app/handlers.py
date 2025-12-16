@@ -647,7 +647,7 @@ async def handle_back_to_menu(callback: CallbackQuery, state: FSMContext):
     await state.clear()
     
 
-    await callback.message.edit_text(
+    await callback.message.answer(
         "📋 *Главное меню:*\n\nВыберите действие:",
         parse_mode="Markdown",
         reply_markup=get_main_menu()
