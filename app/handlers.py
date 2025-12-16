@@ -131,14 +131,6 @@ async def tops_start(message: Message, state: FSMContext):
 async def help_button(message: Message):
     await cmd_help(message)
 
-@router.message(F.text == "⚙️ Настройки")
-async def settings_button(message: Message):
-    await message.answer(
-        "⚙️ *Настройки*\n\nНастройки будут доступны на следующих этапах разработки.\nЗдесь можно будет изменить:\n• Формат отображения данных\n• Язык интерфейса\n• Уведомления о матчах",
-        parse_mode="Markdown",
-        reply_markup=get_back_button()
-    )
-
 @router.message(F.text == "⬅️ Назад в меню")
 async def back_to_menu(message: Message):
     await message.answer(
