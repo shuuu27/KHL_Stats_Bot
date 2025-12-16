@@ -664,7 +664,6 @@ async def handle_back_to_menu(callback: CallbackQuery, state: FSMContext):
         pass
         
     await callback.message.answer(
-        "Вы вернулись в главное меню:",
         reply_markup=get_main_menu()
     )
     await callback.answer()
