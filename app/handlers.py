@@ -646,18 +646,13 @@ async def show_tops(callback: CallbackQuery):
 async def handle_back_to_menu(callback: CallbackQuery, state: FSMContext):
     await state.clear()
     
-    try:
-        await callback.message.edit_text(
-            "📋 *Главное меню:*\n\nВыберите действие:",
-            parse_mode="Markdown",
-            reply_markup=None
-        )
-    except:
-        pass
-        
-    await callback.message.answer(
+
+    await callback.message.edit_text(
+        "📋 *Главное меню:*\n\nВыберите действие:",
+        parse_mode="Markdown",
         reply_markup=get_main_menu()
     )
+
     await callback.answer()
 
 @router.callback_query(F.data == "plot_winners")
