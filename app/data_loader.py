@@ -205,3 +205,15 @@ class DataLoader:
         except Exception as e:
             logger.error(f"Ошибка получения игр: {e}")
             return pd.DataFrame()
+
+loader = DataLoader("data/KHL_v1.csv")
+
+# Пытаемся загрузить данные при импорте
+try:
+    success = loader.load()
+    if success:
+        print("✅ Данные успешно загружены при импорте")
+    else:
+        print("❌ Не удалось загрузить данные при импорте")
+except Exception as e:
+    print(f"⚠️ Ошибка при загрузке данных: {e}")
