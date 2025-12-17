@@ -1,7 +1,4 @@
 ﻿DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2,AG2,TOTAL2,HG3,AG3,TOTAL3,HGOT,AGOT,HGSO,AGSO,TOTALOT,TOTALMAIN,TOTALFULL,TOTALHMAIN,TOTALAWAYMAIN,GAP3PERIODS
-Вот данные в запрошенном формате CSV, начиная с последнего матча (16.12.2025) и заканчивая первым (05.09.2025). Использованы английские названия команд из предоставленного словаря TEAM_NAMES.
-
-DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2,AG2,TOTAL2,HG3,AG3,TOTAL3,HGOT,AGOT,HGSO,AGSO,TOTALOT,TOTALMAIN,TOTALFULL,TOTALHMAIN,TOTALAWAYMAIN,GAP3PERIODS
 12/16/2025,16,12,2025,2526,Sibir Novosibirsk,Avangard Omsk,Sibir Novosibirsk,4,2,,,,,,,,,,,,,,6,6,4,2,2
 12/16/2025,16,12,2025,2526,Avtomobilist Yekaterinburg,Barys Nur-Sultan,Barys Nur-Sultan,1,4,,,,,,,,,,,,,,5,5,1,4,3
 12/16/2025,16,12,2025,2526,Lada,CSKA Moscow,CSKA Moscow,2,4,,,,,,,,,,,,,,6,6,2,4,2
@@ -2770,7 +2767,7 @@ DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2
 12/25/2021,25,12,2021,2122,Tractor Chelyabinsk,Barys Nur-Sultan,Tractor Chelyabinsk,4,2,,,,,,,,,,,,,,,,,,,,
 12/25/2021,25,12,2021,2122,Salavat Ufa,Yekaterinburg,Salavat Ufa,4,2,,,,,,,,,,,,,,,,,,,,
 12/25/2021,25,12,2021,2122,Sibir Novosibirsk,SKA St. Petersburg,SKA St. Petersburg,3,4,,,,,,,,,,,,,,,,,,,,
-12/25/2021,25,12,2021,2122,Amur Khabarovsk,Lokomotiv Yaroslavl,Lokomotiv Yaroslavl,2,4,,,,,,,,,,,,,,,,,,,,
+12/25/2021,25,12,2021,2122,Amur Khabarovsk,Lokomotiv Yaroslavl,Amur Khabarovsk,2,4,,,,,,,,,,,,,,,,,,,,
 12/25/2021,25,12,2021,2122,Vladivostok,Niznekamsk,Vladivostok,3,2,Pen,,,,,,,,,,,,,,,,,,,,,
 12/24/2021,24,12,2021,2122,Kunlun,Din. Minsk,Kunlun,4,6,,,,,,,,,,,,,,,,,,,,
 12/23/2021,23,12,2021,2122,Dyn. Moscow,Yekaterinburg,Dyn. Moscow,7,1,,,,,,,,,,,,,,,,,,,,
@@ -2805,7 +2802,7 @@ DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2
 12/12/2021,12,12,2021,2122,SKA St. Petersburg,Dyn. Moscow,SKA St. Petersburg,1,2,Pen,,,,,,,,,,,,,,,,,,,,,
 12/12/2021,12,12,2021,2122,Lokomotiv Yaroslavl,CSKA Moscow,Lokomotiv Yaroslavl,3,2,AOT,,,,,,,,,,,,0,1,,,5,5,3,2,1
 12/12/2021,12,12,2021,2122,Metallurg Magnitogorsk,Avangard Omsk,Metallurg Magnitogorsk,3,2,,,,,,,,,,,,,,,,,,,,
-12/12/2021,12,12,2021,2122,Barys Nur-Sultan,Niznekamsk,Niznekamsk,1,3,,,,,,,,,,,,,,,,,,,,
+12/12/2021,12,12,2021,2122,Barys Nur-Sultan,Niznekamsk,Barys Nur-Sultan,1,3,,,,,,,,,,,,,,,,,,,,
 12/12/2021,12,12,2021,2122,Sibir Novosibirsk,Kunlun,Sibir Novosibirsk,3,2,AOT,,,,,,,,,,,,0,1,,,5,5,3,2,1
 12/12/2021,12,12,2021,2122,Vladivostok,Amur Khabarovsk,Vladivostok,2,1,,,,,,,,,,,,,,,,,,,,
 12/11/2021,11,12,2021,2122,Sibir Novosibirsk,Tractor Chelyabinsk,Tractor Chelyabinsk,2,4,,,,,,,,,,,,,,,,,,,,
@@ -2824,7 +2821,7 @@ DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2
 12/8/2021,8,12,2021,2122,Din. Minsk,Podolsk,Din. Minsk,1,4,,,,,,,,,,,,,,,,,,,,
 12/8/2021,8,12,2021,2122,Cherepovets,Jokerit,Cherepovets,3,4,AOT,,,,,,,,,,,,0,1,,,7,7,3,4,1
 12/8/2021,8,12,2021,2122,Niznekamsk,Sibir Novosibirsk,Niznekamsk,0,3,,,,,,,,,,,,,,,,,,,,
-12/8/2021,8,12,2021,2122,Tractor Chelyabinsk,SKA St. Petersburg,SKA St. Petersburg,1,4,,,,,,,,,,,,,,,,,,,,
+12/8/2021,8,12,2021,2122,Tractor Chelyabinsk,SKA St. Petersburg,Tractor Chelyabinsk,1,4,,,,,,,,,,,,,,,,,,,,
 12/8/2021,8,12,2021,2122,Metallurg Magnitogorsk,Kunlun,Metallurg Magnitogorsk,6,4,,,,,,,,,,,,,,,,,,,,
 12/7/2021,7,12,2021,2122,Salavat Ufa,Sochi,Salavat Ufa,5,0,,,,,,,,,,,,,,,,,,,,
 12/6/2021,6,12,2021,2122,Dyn. Moscow,CSKA Moscow,Dyn. Moscow,2,3,AOT,,,,,,,,,,,,0,1,,,5,5,2,3,1
@@ -2943,7 +2940,7 @@ DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2
 11/7/2021,7,11,2021,2122,Podolsk,Vladivostok,Vladivostok,0,1,Pen,,,,,,,,,,,,,,,,,,,,,
 11/7/2021,7,11,2021,2122,Nizhny Novgorod,Sochi,Nizhny Novgorod,5,1,,,,,,,,,,,,,,,,,,,,
 11/7/2021,7,11,2021,2122,Lokomotiv Yaroslavl,Amur Khabarovsk,Lokomotiv Yaroslavl,3,4,Pen,,,,,,,,,,,,,,,,,,,,,
-11/7/2021,7,11,2021,2122,Avangard Omsk,Dyn. Moscow,Dyn. Moscow,1,3,,,,,,,,,,,,,,,,,,,,
+11/7/2021,7,11,2021,2122,Avangard Omsk,Dyn. Moscow,Avangard Omsk,1,3,,,,,,,,,,,,,,,,,,,,
 11/6/2021,6,11,2021,2122,Kunlun,Sibir Novosibirsk,Sibir Novosibirsk,1,3,,,,,,,,,,,,,,,,,,,,
 11/6/2021,6,11,2021,2122,Sp. Moscow,Din. Minsk,Sp. Moscow,3,4,AOT,,,,,,,,,,,,0,1,,,7,7,3,4,1
 11/6/2021,6,11,2021,2122,Cherepovets,Metallurg Magnitogorsk,Cherepovets,5,2,,,,,,,,,,,,,,,,,,,,
@@ -3039,7 +3036,7 @@ DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2
 10/17/2021,17,10,2021,2122,Din. Minsk,Vladivostok,Din. Minsk,3,2,,,,,,,,,,,,,,,,,,,,
 10/17/2021,17,10,2021,2122,Lokomotiv Yaroslavl,Kunlun,Lokomotiv Yaroslavl,4,3,,,,,,,,,,,,,,,,,,,,
 10/17/2021,17,10,2021,2122,Tractor Chelyabinsk,Dyn. Moscow,Tractor Chelyabinsk,5,3,,,,,,,,,,,,,,,,,,,,
-10/17/2021,17,10,2021,2122,Metallurg Magnitogorsk,Salavat Ufa,Salavat Ufa,2,5,,,,,,,,,,,,,,,,,,,,
+10/17/2021,17,10,2021,2122,Metallurg Magnitogorsk,Salavat Ufa,Metallurg Magnitogorsk,2,5,,,,,,,,,,,,,,,,,,,,
 10/16/2021,16,10,2021,2122,Cherepovets,Niznekamsk,Cherepovets,6,5,AOT,,,,,,,,,,,,0,1,,,11,11,6,5,1
 10/16/2021,16,10,2021,2122,Podolsk,Dinamo Riga,Podolsk,3,4,AOT,,,,,,,,,,,,0,1,,,7,7,3,4,1
 10/16/2021,16,10,2021,2122,Avangard Omsk,Sibir Novosibirsk,Avangard Omsk,4,3,,,,,,,,,,,,,,,,,,,,
@@ -3080,7 +3077,7 @@ DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2
 10/8/2021,8,10,2021,2122,Salavat Ufa,Jokerit,Salavat Ufa,3,2,AOT,,,,,,,,,,,,0,1,,,5,5,3,2,1
 10/8/2021,8,10,2021,2122,Barys Nur-Sultan,SKA St. Petersburg,Barys Nur-Sultan,3,0,,,,,,,,,,,,,,,,,,,,
 10/8/2021,8,10,2021,2122,Sibir Novosibirsk,Podolsk,Sibir Novosibirsk,2,1,,,,,,,,,,,,,,,,,,,,
-10/7/2021,7,10,2021,2122,Cherepovets,Lokomotiv Yaroslavl,Lokomotiv Yaroslavl,1,5,,,,,,,,,,,,,,,,,,,,
+10/7/2021,7,10,2021,2122,Cherepovets,Lokomotiv Yaroslavl,Cherepovets,1,5,,,,,,,,,,,,,,,,,,,,
 10/7/2021,7,10,2021,2122,Niznekamsk,Din. Minsk,Niznekamsk,3,4,AOT,,,,,,,,,,,,0,1,,,7,7,3,4,1
 10/7/2021,7,10,2021,2122,Bars Kazan,Metallurg Magnitogorsk,Bars Kazan,1,3,,,,,,,,,,,,,,,,,,,,
 10/7/2021,7,10,2021,2122,Amur Khabarovsk,Tractor Chelyabinsk,Amur Khabarovsk,0,2,,,,,,,,,,,,,,,,,,,,
@@ -3139,7 +3136,7 @@ DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2
 9/25/2021,25,9,2021,2122,Nizhny Novgorod,Dyn. Moscow,Nizhny Novgorod,4,2,,,,,,,,,,,,,,,,,,,,
 9/25/2021,25,9,2021,2122,Jokerit,Sochi,Jokerit,4,2,,,,,,,,,,,,,,,,,,,,
 9/25/2021,25,9,2021,2122,Metallurg Magnitogorsk,CSKA Moscow,Metallurg Magnitogorsk,4,0,,,,,,,,,,,,,,,,,,,,
-9/25/2021,25,9,2021,2122,Yekaterinburg,Tractor Chelyabinsk,Tractor Chelyabinsk,1,2,Pen,,,,,,,,,,,,,,,,,,,,,
+9/25/2021,25,9,2021,2122,Yekaterinburg,Tractor Chelyabinsk,Yekaterinburg,1,2,Pen,,,,,,,,,,,,,,,,,,,,,
 9/25/2021,25,9,2021,2122,Barys Nur-Sultan,Sibir Novosibirsk,Barys Nur-Sultan,2,1,AOT,,,,,,,,,,,,0,1,,,3,3,2,1,1
 9/24/2021,24,9,2021,2122,Bars Kazan,Vladivostok,Bars Kazan,2,1,Pen,,,,,,,,,,,,,,,,,,,,,
 9/24/2021,24,9,2021,2122,Niznekamsk,Sp. Moscow,Niznekamsk,2,3,AOT,,,,,,,,,,,,0,1,,,5,5,2,3,1
@@ -3193,12 +3190,12 @@ DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2
 9/13/2021,13,9,2021,2122,Metallurg Magnitogorsk,Niznekamsk,Metallurg Magnitogorsk,4,0,,,,,,,,,,,,,,,,,,,,
 9/13/2021,13,9,2021,2122,Sibir Novosibirsk,Cherepovets,Sibir Novosibirsk,2,4,,,,,,,,,,,,,,,,,,,,
 9/12/2021,12,9,2021,2122,Din. Minsk,Bars Kazan,Din. Minsk,5,2,,,,,,,,,,,,,,,,,,,,
-9/12/2021,12,9,2021,2122,Dinamo Riga,Lokomotiv Yaroslavl,Lokomotiv Yaroslavl,0,4,,,,,,,,,,,,,,,,,,,,
+9/12/2021,12,9,2021,2122,Dinamo Riga,Lokomotiv Yaroslavl,Dinamo Riga,0,4,,,,,,,,,,,,,,,,,,,,
 9/12/2021,12,9,2021,2122,Podolsk,Yekaterinburg,Yekaterinburg,3,4,Pen,,,,,,,,,,,,,,,,,,,,,
 9/12/2021,12,9,2021,2122,Nizhny Novgorod,SKA St. Petersburg,Nizhny Novgorod,3,2,,,,,,,,,,,,,,,,,,,,
 9/12/2021,12,9,2021,2122,Amur Khabarovsk,Dyn. Moscow,Amur Khabarovsk,2,6,,,,,,,,,,,,,,,,,,,,
 9/11/2021,11,9,2021,2122,Kunlun,Sochi,Kunlun,3,2,Pen,,,,,,,,,,,,,,,,,,,,,
-9/11/2021,11,9,2021,2122,Avangard Omsk,Jokerit,Jokerit,2,3,,,,,,,,,,,,,,,,,,,,
+9/11/2021,11,9,2021,2122,Avangard Omsk,Jokerit,Avangard Omsk,2,3,,,,,,,,,,,,,,,,,,,,
 9/11/2021,11,9,2021,2122,Salavat Ufa,Niznekamsk,Salavat Ufa,5,1,,,,,,,,,,,,,,,,,,,,
 9/11/2021,11,9,2021,2122,Barys Nur-Sultan,Sp. Moscow,Barys Nur-Sultan,1,4,,,,,,,,,,,,,,,,,,,,
 9/10/2021,10,9,2021,2122,CSKA Moscow,Lokomotiv Yaroslavl,CSKA Moscow,3,1,,,,,,,,,,,,,,,,,,,,
@@ -3219,10 +3216,10 @@ DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2
 9/7/2021,7,9,2021,2122,Nizhny Novgorod,Sibir Novosibirsk,Sibir Novosibirsk,0,3,,,,,,,,,,,,,,,,,,,,
 9/7/2021,7,9,2021,2122,Lokomotiv Yaroslavl,Din. Minsk,Lokomotiv Yaroslavl,3,4,,,,,,,,,,,,,,,,,,,,
 9/7/2021,7,9,2021,2122,Metallurg Magnitogorsk,Salavat Ufa,Metallurg Magnitogorsk,2,7,,,,,,,,,,,,,,,,,,,,
-9/6/2021,6,9,2021,2122,Sochi,CSKA Moscow,CSKA Moscow,1,4,,,,,,,,,,,,,,,,,,,,
+9/6/2021,6,9,2021,2122,Sochi,CSKA Moscow,Sochi,1,4,,,,,,,,,,,,,,,,,,,,
 9/6/2021,6,9,2021,2122,Sp. Moscow,Podolsk,Sp. Moscow,3,2,AOT,,,,,,,,,,,,0,1,,,5,5,3,2,1
 9/6/2021,6,9,2021,2122,SKA St. Petersburg,Vladivostok,SKA St. Petersburg,9,2,,,,,,,,,,,,,,,,,,,,
-9/6/2021,6,9,2021,2122,Kunlun,Dinamo Riga,Dinamo Riga,5,6,,,,,,,,,,,,,,,,,,,,
+9/6/2021,6,9,2021,2122,Kunlun,Dinamo Riga,Kunlun,5,6,,,,,,,,,,,,,,,,,,,,
 9/6/2021,6,9,2021,2122,Avangard Omsk,Amur Khabarovsk,Avangard Omsk,3,2,AOT,,,,,,,,,,,,0,1,,,5,5,3,2,1
 9/6/2021,6,9,2021,2122,Jokerit,Tractor Chelyabinsk,Jokerit,5,4,AOT,,,,,,,,,,,,0,1,,,9,9,5,4,1
 9/5/2021,5,9,2021,2122,Dyn. Moscow,Sibir Novosibirsk,Dyn. Moscow,4,0,,,,,,,,,,,,,,,,,,,,
@@ -3234,7 +3231,7 @@ DATE,DAY,MONTH,YEAR,SEASON,HOMETEAM,AWAYTEAM,WINNER,HG,AG,ADD,HG1,AG1,TOTAL1,HG2
 9/4/2021,4,9,2021,2122,Sp. Moscow,Amur Khabarovsk,Sp. Moscow,3,1,,,,,,,,,,,,,,,,,,,,
 9/4/2021,4,9,2021,2122,Niznekamsk,Jokerit,Niznekamsk,4,2,,,,,,,,,,,,,,,,,,,,
 9/4/2021,4,9,2021,2122,Lokomotiv Yaroslavl,SKA St. Petersburg,SKA St. Petersburg,3,4,Pen,,,,,,,,,,,,,,,,,,,,,
-9/4/2021,4,9,2021,2122,Bars Kazan,Kunlun,Kunlun,3,4,,,,,,,,,,,,,,,,,,,,
+9/4/2021,4,9,2021,2122,Bars Kazan,Kunlun,Bars Kazan,3,4,,,,,,,,,,,,,,,,,,,,
 9/4/2021,4,9,2021,2122,Avangard Omsk,Vladivostok,Avangard Omsk,4,3,Pen,,,,,,,,,,,,,,,,,,,,,
 9/4/2021,4,9,2021,2122,CSKA Moscow,Dinamo Riga,CSKA Moscow,3,2,,,,,,,,,,,,,,,,,,,,
 9/3/2021,3,9,2021,2122,Tractor Chelyabinsk,Sibir Novosibirsk,Tractor Chelyabinsk,3,2,AOT,,,,,,,,,,,,0,1,,,5,5,3,2,1
