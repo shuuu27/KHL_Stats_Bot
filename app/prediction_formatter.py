@@ -18,7 +18,6 @@ class PredictionFormatter:
   
         home_prob = probabilities.get('home_win', 0) * 100
         away_prob = probabilities.get('away_win', 0) * 100
-        draw_prob = probabilities.get('draw', 0) * 100
         
 
         home_stats = prediction_data['team_stats']['home']
@@ -65,7 +64,7 @@ class PredictionFormatter:
             response += f"📋 *Последние встречи:*\n"
             for game in h2h_data['last_games']:
                 winner = TEAM_NAMES.get(game['WINNER'], game['WINNER'])
-                response += f"• {game['HOMETEAM']} {game['SCORE']} {game['AWAYTEAM']} (Победитель: {winner})\n"
+                response += f"• {game['HOMETEAM']} {game['AWAYTEAM']} (Победитель: {winner})\n"
         
         return response
     
