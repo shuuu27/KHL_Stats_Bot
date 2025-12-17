@@ -24,47 +24,65 @@ def get_main_menu() -> ReplyKeyboardMarkup:
     
     return builder.as_markup(resize_keyboard=True, one_time_keyboard=True, input_field_placeholder="Выберите действие...")
 
+
 def get_back_button() -> ReplyKeyboardMarkup:
     builder = ReplyKeyboardBuilder()
     builder.add(KeyboardButton(text="⬅️ Назад в меню"))
     return builder.as_markup(resize_keyboard=True)
 
 
+def get_available_teams() -> list:
+    """
+    Возвращает список доступных команд на основе TEAM_NAMES
+    и загруженных данных из loader
+    """
+    available_teams = []
+    
+    if loader.teams:
+        # Фильтруем команды, оставляем только те, которые есть в TEAM_NAMES
+        for team_id in loader.teams:
+            if team_id in TEAM_NAMES:
+                available_teams.append(team_id)
+            # Также проверяем обратное соответствие (может быть разный формат написания)
+            elif any(team_id.lower() in key.lower() for key in TEAM_NAMES.keys()):
+                # Находим правильный ключ
+                for key in TEAM_NAMES.keys():
+                    if team_id.lower() in key.lower() or key.lower() in team_id.lower():
+                        available_teams.append(key)
+                        break
+    
+    # Если все равно пусто, используем тестовые команды
+    if not available_teams:
+        available_teams = ["Avangard Omsk", "CSKA Moscow", "SKA St. Petersburg"]
+    
+    # Убираем возможные дубли
+    available_teams = list(dict.fromkeys(available_teams))
+    
+    return available_teams
+
 
 def get_teams_keyboard(action_prefix: str = "team_") -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     
-    if loader.teams:
-        for team_id in loader.teams: 
-            display_name = TEAM_NAMES.get(team_id, team_id)
-            
-            builder.button(
-                text=display_name,
-                callback_data=f"{action_prefix}{team_id}"
-            )
-    else:
-
-        test_teams = [
-            ("Авангард Омск 🦅", "Avangard Omsk"),
-            ("ЦСКА Москва 🐎", "CSKA Moscow"),
-            ("СКА СПб ⭐", "SKA St. Petersburg"),
-        ]
+    available_teams = get_available_teams()
+    
+    for team_id in available_teams:
+        display_name = TEAM_NAMES.get(team_id, team_id)
         
-        for team_name, team_id in test_teams:
-            builder.button(
-                text=team_name,
-                callback_data=f"{action_prefix}{team_id}"
-            )
+        builder.button(
+            text=display_name,
+            callback_data=f"{action_prefix}{team_id}"
+        )
     
     builder.adjust(2)
     
-
     builder.row(InlineKeyboardButton(
         text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
     return builder.as_markup()
+
 
 def get_seasons_keyboard(action_prefix: str = "season_") -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
@@ -106,6 +124,7 @@ def get_seasons_keyboard(action_prefix: str = "season_") -> InlineKeyboardMarkup
     
     return builder.as_markup()
 
+
 def get_confirmation_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()   
     builder.button(text="✅ Да", callback_data="confirm_yes")
@@ -113,13 +132,13 @@ def get_confirmation_keyboard() -> InlineKeyboardMarkup:
     
     builder.adjust(2)
     
-
     builder.row(InlineKeyboardButton(
         text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
     ))
     
     return builder.as_markup()
+
 
 def get_stats_options_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
@@ -148,6 +167,7 @@ def get_stats_options_keyboard() -> InlineKeyboardMarkup:
     
     return builder.as_markup()
 
+
 def get_yes_no_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     
@@ -155,7 +175,6 @@ def get_yes_no_keyboard() -> InlineKeyboardMarkup:
     
     builder.adjust(2)
     
-
     builder.row(InlineKeyboardButton(
         text="🏠 Назад в меню",
         callback_data="back_to_main_menu"
@@ -164,9 +183,7 @@ def get_yes_no_keyboard() -> InlineKeyboardMarkup:
     return builder.as_markup()
 
 
-
 def get_back_only_keyboard() -> InlineKeyboardMarkup:
-
     builder = InlineKeyboardBuilder()
     
     builder.button(
@@ -176,8 +193,8 @@ def get_back_only_keyboard() -> InlineKeyboardMarkup:
     
     return builder.as_markup()
 
-def get_table_seasons_keyboard() -> InlineKeyboardMarkup:
 
+def get_table_seasons_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     
     seasons = [
@@ -215,6 +232,7 @@ def get_table_seasons_keyboard() -> InlineKeyboardMarkup:
     ))
     
     return builder.as_markup()
+
 
 def get_tops_seasons_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
@@ -256,6 +274,7 @@ def get_tops_seasons_keyboard() -> InlineKeyboardMarkup:
     
     return builder.as_markup()
 
+
 def get_tops_menu_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     
@@ -281,6 +300,7 @@ def get_tops_menu_keyboard() -> InlineKeyboardMarkup:
     builder.adjust(2)
     return builder.as_markup()
 
+
 def get_plot_options_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     
@@ -305,6 +325,7 @@ def get_plot_options_keyboard() -> InlineKeyboardMarkup:
     
     builder.adjust(2)
     return builder.as_markup()
+
 
 def get_plot_seasons_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
@@ -345,6 +366,7 @@ def get_plot_seasons_keyboard() -> InlineKeyboardMarkup:
     builder.adjust(3)
     return builder.as_markup()
 
+
 def get_prediction_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     
@@ -371,17 +393,18 @@ def get_prediction_keyboard() -> InlineKeyboardMarkup:
     builder.adjust(2)
     return builder.as_markup()
 
-def get_prediction_teams_keyboard(step: int = 1) -> InlineKeyboardMarkup:
 
+def get_prediction_teams_keyboard(step: int = 1) -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     
-    if loader.teams:
-        for team_id in loader.teams: 
-            display_name = TEAM_NAMES.get(team_id, team_id)
-            builder.button(
-                text=display_name,
-                callback_data=f"pred_team{step}_{team_id}"
-            )
+    available_teams = get_available_teams()
+    
+    for team_id in available_teams:
+        display_name = TEAM_NAMES.get(team_id, team_id)
+        builder.button(
+            text=display_name,
+            callback_data=f"pred_team{step}_{team_id}"
+        )
     
     builder.adjust(2)
     
