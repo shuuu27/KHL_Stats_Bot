@@ -30,7 +30,7 @@ async def main():
     global prediction_engine, calculator, ai_open_bot
     prediction_engine = PredictionEngine(loader.df)
     calculator = StatsCalculator(loader.df)
-    ai_open_bot: KHL_AIBot = KHL_AIBot()
+    ai_open_bot = KHL_AIBot()
 
     from app import handlers
     handlers.prediction_engine = prediction_engine
