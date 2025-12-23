@@ -1045,23 +1045,48 @@ async def handle_ai_questions(message: Message):
 
 
 async def process_ai_question(message: Message):
-    
+    """Обработка вопроса к ИИ"""
     user_text = message.text.strip()
     await message.bot.send_chat_action(message.chat.id, "typing")
     
     try:
+        if ai_open_bot is None:
+            await message.answer(
+                "❌ *ИИ временно недоступен*\n\n"
+                "Пожалуйста, попробуйте позже или используйте другие функции бота.",
+                parse_mode="Markdown",
+                reply_markup=get_main_menu()
+            )
+            return
+        
         response = ai_open_bot.ask(user_text)
+        
 
-        await message.answer(
-            "Задайте любой вопрос о КХЛ:\n",
-            parse_mode="Markdown",
-            reply_markup=get_ai_keyboard()
-        )
+        if len(response) > 4000:
+            parts = [response[i:i+4000] for i in range(0, len(response), 4000)]
+            for i, part in enumerate(parts):
+                if i == len(parts) - 1:
+                    await message.answer(
+                        f"📊 *Ответ ИИ:*\n\n{part}",
+                        parse_mode="Markdown",
+                        reply_markup=get_ai_keyboard()
+                    )
+                else:
+                    await message.answer(
+                        part,
+                        parse_mode="Markdown"
+                    )
+        else:
+            await message.answer(
+                f"📊 *Ответ ИИ:*\n\n{response}",
+                parse_mode="Markdown",
+                reply_markup=get_ai_keyboard()
+            )
             
     except Exception as e:
         print(f"Ошибка в ИИ: {e}")
         await message.answer(
-            f"❌ *Произошла ошибка при обработке запроса*\n\n"
+            "❌ *Произошла ошибка при обработке запроса*\n\n"
             "Попробуйте:\n"
             "1. Переформулировать вопрос\n"
             "2. Использовать конкретные названия команд\n"
