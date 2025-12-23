@@ -419,11 +419,18 @@ def get_prediction_teams_keyboard(step: int = 1) -> InlineKeyboardMarkup:
 def get_ai_keyboard():
     keyboard = [
         [
-            InlineKeyboardButton(text="💬 Начать диалог с ИИ", callback_data="start_ai_chat"),
             InlineKeyboardButton(text="🤖 Краткая информация", callback_data="about_bot")
         ],
         [
-            InlineKeyboardButton(text="⬅️ Назад в меню", callback_data="back_to_main_menu")
+            InlineKeyboardButton(text="🏠 Назад в меню", callback_data="back_to_main_menu")
+        ]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=keyboard)
+
+def get_back_to_ai_keyboard():
+    keyboard = [
+        [
+            InlineKeyboardButton(text="⬅️ Назад", callback_data="back_to_ai")
         ]
     ]
     return InlineKeyboardMarkup(inline_keyboard=keyboard)
