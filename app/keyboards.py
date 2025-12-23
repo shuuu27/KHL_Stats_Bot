@@ -420,7 +420,7 @@ def get_ai_keyboard():
     keyboard = [
         [
             InlineKeyboardButton(text="💬 Начать диалог с ИИ", callback_data="start_ai_chat"),
-            InlineKeyboardButton(text="🤖 Краткая информация", callback_data="about_bot")
+            InlineKeyboardButton(text="Краткая информация", callback_data="about_bot")
         ],
         [
             InlineKeyboardButton(text="⬅️ Назад в меню", callback_data="back_to_main_menu")

@@ -995,7 +995,7 @@ async def back_to_predictions(callback: CallbackQuery, state: FSMContext):
     )
     await callback.answer()
 
-@router.callback_query(F.data == "🤖 Краткая информация")
+@router.callback_query(F.data == "Краткая информация")
 async def show_model_accuracy(callback: CallbackQuery):
     accuracy_info = """
 👩🏻‍💻 *Информация о модели*
@@ -1061,7 +1061,7 @@ async def process_ai_question(message: Message):
     except Exception as e:
         print(f"Ошибка в ИИ: {e}")
         await message.answer(
-            f"❌ *Произошла ошибка при обработке запроса {e}*\n\n"
+            f"❌ *Произошла ошибка при обработке запроса*\n\n"
             "Попробуйте:\n"
             "1. Переформулировать вопрос\n"
             "2. Использовать конкретные названия команд\n"
