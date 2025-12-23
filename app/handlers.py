@@ -995,7 +995,7 @@ async def back_to_predictions(callback: CallbackQuery, state: FSMContext):
     )
     await callback.answer()
 
-@router.callback_query(F.data == "Краткая информация")
+@router.callback_query(F.data == "about_bot")
 async def show_model_accuracy(callback: CallbackQuery):
     accuracy_info = """
 👩🏻‍💻 *Информация о модели*
