@@ -9,6 +9,12 @@ from app.handlers import router
 
 load_dotenv()
 
+OPENAI_API_KEY = os.getenv("VSEGPT_API_KEY")
+if not OPENAI_API_KEY:
+    print("❌ OPENAI_API_KEY не найден в переменных окружения!")
+    print("⚠️  Убедитесь, что вы создали файл .env с OPENAI_API_KEY=ваш_токен")
+    exit(1)
+
 TOKEN = os.getenv("TELEGRAM_TOKEN")
 if not TOKEN:
     print("❌ TELEGRAM_TOKEN не найден в переменных окружения!")

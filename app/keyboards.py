@@ -19,6 +19,7 @@ def get_main_menu() -> ReplyKeyboardMarkup:
     )
     
     builder.row(
+        KeyboardButton(text="🤖 Искусственный интеллект"),
         KeyboardButton(text="ℹ️ Помощь")
     )
     
@@ -414,3 +415,15 @@ def get_prediction_teams_keyboard(step: int = 1) -> InlineKeyboardMarkup:
     ))
     
     return builder.as_markup()
+
+def get_ai_keyboard():
+    keyboard = [
+        [
+            InlineKeyboardButton(text="💬 Начать диалог с ИИ", callback_data="start_ai_chat"),
+            InlineKeyboardButton(text="🤖 Краткая информация", callback_data="about_bot")
+        ],
+        [
+            InlineKeyboardButton(text="⬅️ Назад в меню", callback_data="back_to_main_menu")
+        ]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=keyboard)

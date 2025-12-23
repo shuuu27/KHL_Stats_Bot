@@ -3,15 +3,10 @@ from aiogram.filters import Command, CommandStart
 from aiogram.types import Message, CallbackQuery, BufferedInputFile
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
-from app.prediction_engine import PredictionEngine
 from app.prediction_formatter import PredictionFormatter
 
-
-
-from app.stats_calculator import StatsCalculator
 from app.formatters import StatsFormatter
 from app.text_tables import TextTableFormatter
-from app.plot_generator import PlotGenerator
 from app.data_loader import loader
 from data.team_names import TEAM_NAMES
 from app.keyboards import (
@@ -20,12 +15,14 @@ from app.keyboards import (
     get_stats_options_keyboard, get_yes_no_keyboard,
     get_back_only_keyboard, get_tops_menu_keyboard,
     get_plot_options_keyboard, get_plot_seasons_keyboard,
-    get_prediction_keyboard, get_prediction_teams_keyboard
+    get_prediction_keyboard, get_prediction_teams_keyboard,
+    get_ai_keyboard
 )
 
 prediction_engine = None
 calculator = None
 plot_generator = None
+ai_open_bot = None
 router = Router()
 
 class StatsStates(StatesGroup):
@@ -48,6 +45,8 @@ async def cmd_start(message: Message):
 🔮 *Предсказание матча* — ML прогноз исхода матча
 🏆 *Таблица сезона* — турнирная таблица любого сезона
 📈 *Топы и рекорды* — лучшие показатели и достижения
+🤖 *Искусственный интеллект* - ИИ о КХЛ
+
 
 Выберите действие в меню ниже!
     """    
@@ -67,6 +66,7 @@ async def cmd_help(message: Message):
 📈 **Топы и рекорды** — различные рейтинги команд
 🔮 **Предсказание матча** — выберите две команды
 🏆 **Таблица сезона** — турнирная таблица выбранного сезона
+🤖 **Искусственный интеллект** - пообщайтесь с ИИ по поводу статистики
 
 
 *Как пользоваться:*
@@ -75,7 +75,7 @@ async def cmd_help(message: Message):
 3. Просматривайте статистику в удобном формате
 
 *Данные:*
-• Сезоны с 2008/09 по 2019/20
+• Сезоны с 2008/09 по 2025/26
 • Все команды КХЛ за этот период
 • Регулярный чемпионат + плей-офф
     """
@@ -854,7 +854,34 @@ async def prediction_start(message: Message):
         reply_markup=get_prediction_keyboard()
     )
 
-# Обработчики для предсказаний
+@router.message(F.text == "🤖 Искусственный интеллект")
+async def ai_start(message: Message):
+    await message.answer(
+        "🤖 *Режим ИИ-ассистента*\n\n"
+        "Задайте любой вопрос о КХЛ:\n"
+        "• Статистика команд\n"
+        "• Таблицы сезонов\n"
+        "• Прогнозы матчей\n"
+        "• Анализ данных\n\n"
+        "Примеры:\n"
+        "• Какая статистика у Ак Барс?\n"
+        "• Кто выиграет в матче СКА - ЦСКА?\n"
+        "• Покажи таблицу текущего сезона\n"
+        "• Сравни Динамо Минск и Динамо Москва",
+        parse_mode="Markdown",
+        reply_markup=get_ai_keyboard()
+    )
+
+@router.callback_query(F.data == "start_ai_chat")
+async def start_ai_chat(callback: CallbackQuery, state: FSMContext):
+    await callback.message.edit_text(
+        "💬 *Режим чата с ИИ активирован*\n\n",
+        "Задайте любой вопрос о КХЛ, и ИИ поможет вам с анализом статистики!\n\n",
+        parse_mode="Markdown",
+        reply_markup=get_back_only_keyboard()
+    )
+    await callback.answer()
+
 @router.callback_query(F.data == "make_prediction")
 async def make_prediction_start(callback: CallbackQuery, state: FSMContext):
     await callback.message.edit_text(
@@ -944,7 +971,7 @@ async def show_model_accuracy(callback: CallbackQuery):
 • Общий winrate команд
 
 *Данные для обучения:*
-• Все матчи КХЛ (2008-2020)
+• Все матчи КХЛ (2008-2026)
 • Балансировка классов
 
 *Точность модели:* ~65-70% (на тестовой выборке)
@@ -967,3 +994,79 @@ async def back_to_predictions(callback: CallbackQuery, state: FSMContext):
         reply_markup=get_prediction_keyboard()
     )
     await callback.answer()
+
+@router.callback_query(F.data == "🤖 Краткая информация")
+async def show_model_accuracy(callback: CallbackQuery):
+    accuracy_info = """
+👩🏻‍💻 *Информация о модели*
+
+*Модель:* gpt-3.5-turbo
+
+*Главная тематика:* КХЛ
+
+*Данные для обучения:*
+• Все матчи КХЛ (2008-2026)
+• 12000 строк
+
+*Примеры запросов*
+• Покажи таблицу сезона
+• "Какая статистика у Ак Барс?
+• Кто выиграет в матче СКА - ЦСКА?
+• Таблица текущего сезона
+• Какие команды самые результативные?
+• Как часто Динамо Минск выигрывает дома?
+• Сравни статистику Салават Юлаев и Металлург Магнитогорск
+
+"""
+    
+    await callback.message.edit_text(
+        accuracy_info,
+        parse_mode="Markdown",
+        reply_markup=get_back_only_keyboard()
+    )
+    await callback.answer()
+
+@router.message()
+async def handle_ai_questions(message: Message):
+    
+    user_text = message.text.strip()
+    
+    menu_commands = [
+        "📊 Статистика команды", "🔮 Предсказание матча", 
+        "🏆 Таблица сезона", "📈 Топы и рекорды",
+        "🤖 Искусственный интеллект", "📈 Графики и визуализация",
+        "ℹ️ Помощь", "⬅️ Назад в меню", "🏠 Назад в меню"
+    ]
+
+    if user_text in menu_commands:
+        return
+    
+    await process_ai_question(message)
+
+
+async def process_ai_question(message: Message):
+    
+    user_text = message.text.strip()
+    await message.bot.send_chat_action(message.chat.id, "typing")
+    
+    try:
+        response = ai_open_bot.ask(user_text)
+
+        await message.answer(
+            "Задайте любой вопрос о КХЛ:\n",
+            parse_mode="Markdown",
+            reply_markup=get_ai_keyboard()
+        )
+            
+    except Exception as e:
+        print(f"Ошибка в ИИ: {e}")
+        await message.answer(
+            "❌ *Произошла ошибка при обработке запроса*\n\n"
+            "Попробуйте:\n"
+            "1. Переформулировать вопрос\n"
+            "2. Использовать конкретные названия команд\n"
+            "3. Обратиться к функциям меню\n\n"
+            "Или попробуйте позже.",
+            parse_mode="Markdown",
+            reply_markup=get_main_menu()
+        )

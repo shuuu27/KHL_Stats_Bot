@@ -37,8 +37,7 @@ class StatsCalculator:
             )
             
             df_our_team['POINTS'] = df_our_team.apply(
-                lambda row: 3 if row['WINNER'] == team_name and pd.isna(row['ADD'])
-                else 2 if row['WINNER'] == team_name and row['ADD'] in ['AOT', 'PEN']
+                lambda row: 2 if row['WINNER'] == team_name
                 else 1 if row['WINNER'] != team_name and row['ADD'] in ['AOT', 'PEN']
                 else 0,
                 axis=1
